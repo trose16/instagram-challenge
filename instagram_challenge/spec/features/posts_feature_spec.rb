@@ -21,15 +21,20 @@ feature 'posts' do
     end
 
     scenario 'CREATE: it prompts user to add an image, then displays the new picture' do
-        visit '/posts'
-        click_link 'Add a new photo or video'
-        fill_in 'Name', with: 'My Cat Mr. Paws'
-        fill_in 'Caption', with: 'Adorable Mr. Paws eats soup'
-        click_button 'Upload Image'
-        expect(page).to have_content 'My Cat Mr. Paws'
-        expect(current_path).to eq '/posts'
-      end
+      visit '/posts'
+      click_link 'Add a new photo or video'
+      fill_in 'Name', with: 'My Cat Mr. Paws'
+      fill_in 'Caption', with: 'Adorable Mr. Paws eats soup'
+      click_button 'Upload Image'
+      expect(page).to have_content 'My Cat Mr. Paws'
+      expect(current_path).to eq '/posts'
+    end
 
+    scenario 'UPLOAD IMAGE: it adds an image to the homepage' do
+      visit '/posts'
+      attach_file 'Picture', Rails.root.join('spec/images/old-man1.jpg')
+      expect(page).to have_css 'img.uploaded-pic'
+    end
   end
 
 

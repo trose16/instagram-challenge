@@ -2,6 +2,7 @@
   <% @posts.each do |post| %>
     <h2><%= link_to post.name, post_path(post) %></h2>
     <h2> <%= post.name %> </h2>
+    <%= image_tag post.picture.url(:thumb), class: 'uploaded-pic' %>
     <h2> <%= post.caption %> </h2>
   <% end %>
 <% else %>

@@ -10,6 +10,11 @@ group :test do
   gem 'capybara'
 end
 
+# image uploads
+group :images do
+  gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+  gem 'aws-sdk'
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
