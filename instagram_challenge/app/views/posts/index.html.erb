@@ -1,5 +1,6 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
+    <h2><%= link_to post.name, post_path(post) %></h2>
     <h2> <%= post.name %> </h2>
     <h2> <%= post.caption %> </h2>
   <% end %>
@@ -7,4 +8,4 @@
   You have no posts yet
 <% end %>
 
-<a href='#'>Add a new photo or video</a>
+<a href='/posts/new'>Add a new photo or video</a>
